@@ -1,0 +1,44 @@
+body {
+    /* background-color: white; */
+    overflow:scroll; 
+}
+
+.navbar {
+    flex-direction: column;
+}
+.container-fluid .col h1{
+    font-size:25px;
+    text-shadow: 4px 2px grey;
+    margin-bottom:30px ;
+}
+.container-fluid p{
+    font-size: 15px;
+    /* padding:  0px 25px;
+    margin: 10px 15px; */
+    /* text-align: justify; */
+} 
+.container-fluid .row{
+    display: flex;
+    flex-direction: column;
+}
+#card-container{
+    padding: 10px;
+    margin: 20px auto;
+}
+#card-container .col {
+    /* border: 6px solid blue; */
+    padding: 0px;
+    margin: 15px auto;
+}
+#card-container .card {
+    /* width: 18em; */
+    width:85%;
+    height: 26rem;
+    padding: 25px 10px;
+}
+.card-img-top1 {
+    /* width: 15rem; */
+    width:80%;
+    /* height: 50%; */
+    /* padding-top: 5px; */
+}

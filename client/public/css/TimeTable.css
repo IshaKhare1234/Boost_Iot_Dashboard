@@ -1,0 +1,22 @@
+#time-table{
+    padding-top: 1rem;
+
+}
+
+#table-heading{
+    margin-top: 4rem;
+    background-color: aqua;
+    text-align: center;
+    width: fit-content;
+}
+
+.modal-header{
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.cross-btn{
+    font-size: 1rem;
+}
+
+  

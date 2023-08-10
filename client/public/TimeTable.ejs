@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/public/css/index.css">
+  <link rel="stylesheet" href="/public/css/TimeTable.css">
+  <title>Home Page</title>
+</head>
+
+<body>
+  <section>
+    <nav class="navbar navbar-expand-lg navbar-dark text-white custom-nav ">
+      <div class="container-fluid">
+        <!-- <div id="logo-div">
+            <img src="" id="logo" alt="logo">
+          </div> -->
+        <a class="navbar-brand m-3 text-size" >Boost_IoT_Club</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse m-5 text-lg-center" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" >Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/News">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" >Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" >FAQs</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- this is the time table area-->
+    <section>
+      <div id="table-heading" class="container">
+        <h3>Time-Table For Section B</h3>
+      </div>
+
+      <div class="container">
+        <table id="time-table" class="table table-bordered table-responsive-md table-dark">
+          <thead class="table-dark text-center">
+            <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">Day</th>
+              <th scope="col">9:00AM-10:00AM</th>
+              <th scope="col">10:00AM-11:00AM</th>
+              <th scope="col">11:00AM-12:00PM</th>
+              <th scope="col">12:00PM-01:00PM</th>
+              <th scope="col">01:00PM-01:30PM</th>
+              <th scope="col">01:30PM-02:30PM</th>
+              <th scope="col">02:30PM-03:30PM</th>
+              <th scope="col">03:30PM-04:30PM</th>
+              <th scope="col">04:30PM-05:30PM</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider text-center table-light">
+            <% for(var i=0;i<=5; i++){ %>
+              <tr>
+                <td ><%-TableData[i].id%></td>
+                <td ><%-TableData[i].Day%></td>
+                <td ><%-TableData[i].Firstcol%></td>
+                <td ><%-TableData[i].Secondcol%></td>
+                <td ><%-TableData[i].Thirdcol%></td>
+                <td ><%-TableData[i].Fourthcol%></td>
+                <td ><%-TableData[i].Fifthcol%></td>
+                <td ><%-TableData[i].Sixthcol%></td>
+                <td ><%-TableData[i].Seventhcol%></td>
+                <td ><%-TableData[i].Eighthcol%></td>
+                <td ><%-TableData[i].Ninethcol%></td>
+              </trt>
+              <% } %>
+              <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-bs-whatever="@mdo">Edit</button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="EditModal" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="EditModal">Edit Record</h1>
+                        <button type="button" class="btn-close cross-btn" data-bs-dismiss="modal"
+                          aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form action="/TimeTable" method="POST">
+                          <div class="mb-3">
+                            <label for="Serial" class="col-form-label">Serial No:</label>
+                            <input type="number" class="form-control" id="Serial" name="Serial" min="1" max="6" placeholder="Write row no" required>
+                          </div>
+                          
+                          <div class="dropdown">
+                            <div id="Time-slot"></div>
+                            <button id="dropdown" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown button
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a id="dropdown-1" class="dropdown-item" >9:00AM-10:00AM</a></li>
+                              <li><a id="dropdown-2" class="dropdown-item" >10:00AM-11:00AM</a></li>
+                              <li><a id="dropdown-3" class="dropdown-item" >11:00AM-12:00PM</a></li>
+                              <li><a id="dropdown-4" class="dropdown-item" >12:00PM-01:00PM</a></li>
+                              <li><a id="dropdown-5" class="dropdown-item" >01:30PM-02:30PM</a></li>
+                              <li><a id="dropdown-6" class="dropdown-item" >02:30PM-03:30PM</a></li>
+                              <li><a id="dropdown-7" class="dropdown-item" >03:30PM-04:30PM</a></li>
+                              <li><a id="dropdown-8" class="dropdown-item" >04:30PM-05:30PM</a></li>
+                            </ul>
+                          </div>                        
+                          <div class="mb-2">
+                            <label for="Subject" class="col-form-label">Subject:</label>
+                            <input class="form-control" id="Subject" name="Subject" placeholder="Subject"></input>
+                          </div>
+                          <div class="mb-2">
+                            <label for="Faculty" class="col-form-label">Faculty:</label>
+                            <input class="form-control" id="Faculty" name="Faculty" placeholder="Faculty"></input>
+                          </div>
+                          <div class="modal-footer">
+                            <button id="close-btn" type="button" class="btn btn-secondary"
+                              data-bs-dismiss="modal">Close</button>
+                            <button id="save-change-btn" type="submit" class="btn btn-success">Save Changes</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </tbody>
+        </table>
+      </div>
+    </section>
+</body>
+<script type="module" src="/Js/TimeTable.js"></script>
+<script type="text/js" src="../../index.js"></script>
+
+</html>
